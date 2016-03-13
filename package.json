@@ -1,0 +1,26 @@
+{
+  "name": "howler",
+  "version": "1.0.0",
+  "description": "The ultimate HOmeWork heLpER",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "enclave",
+    "build": "node node_modules/enclave/src/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sashankg/Howler.git"
+  },
+  "author": "Sashank Gogula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sashankg/Howler/issues"
+  },
+  "homepage": "https://github.com/sashankg/Howler#readme",
+  "dependencies": {
+    "enclave": "^0.8.16",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1"
+  }
+}
