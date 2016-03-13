@@ -1,5 +1,6 @@
 import { createStore, combineReducers } from 'redux';
-import courses as '../reducers/courseReducer';
+import courses from '../reducers/courseReducer';
+
 export default function configureStore() {
     const reducers = combineReducers({
         courses
