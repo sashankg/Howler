@@ -1,9 +1,9 @@
-function Course(id, name="", dueDate=(new Date())) {
+function Course(id, name="", assignments=[]) {
     this.id = id;
     this.name = name;
-    this.dueDate = dueDate;
+    this.assignments = assignments;
 }
-export default function courseReducer(state = {array: [], entities: {}}, action) {
+export default function courseReducer(state = {array: [1], entities: { 1: new Course(1, "Math")}}, action) {
     switch(action.type) {
     case 'ADD_COURSE': {
         const id = new Date().getTime();
