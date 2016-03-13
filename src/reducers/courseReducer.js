@@ -36,7 +36,17 @@ export default function courseReducer(state = {array: [], entities: {}}, action)
             })
         }
     }
+    case 'DELETE_COURSE': {
+        const index = state.array.indexOf(action.id);
+        const array = state.array.slice(0, index).append(state.array.slice(index+1));
+        return {
+            array,
+            entities: array.reduce((object, id) => {
+                object[id] = state.entities[id];
+                return object;
+            }, {})
+        }
+    }
     default: return state;
-
     }
 }
