@@ -1,6 +1,6 @@
-function Course(id, text="", dueDate=(new Date())) {
+function Course(id, name="", dueDate=(new Date())) {
     this.id = id;
-    this.text = text;
+    this.name = name;
     this.dueDate = dueDate;
 }
 export default function courseReducer(state = {array: [], entities: {}}, action) {
