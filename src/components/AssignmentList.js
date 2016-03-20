@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import 
+import { addAssignment, editAssignment, deleteAssignment } from '../actions/assignmentActions';
+import Assignment from './Assignment';
 
 class AssignmentList extends React.Component {
     render() {
-        const assignments = this.props.assignments.map((assignments, i) => (<Assignment key={ i } assignment={ assignment } />));
+        const assignments = this.props.assignments.map((assignment, i) => (<Assignment key={ i } assignment={ assignment } />));
         return (
             <div className="assignmentList">
+                <button onClick={ this.handleAddButton.bind(this) }></button>
                 { assignments } 
             </div>
-
         );
+    }
+    handleAddButton() {
+        this.props.addAssignment(this.props.course); 
     }
 }
 
@@ -21,6 +25,7 @@ function mapStateToProps(state, props) {
     }
 }
 const mapDispatchToProps = {
-    
+    addAssignment,
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(AssignmentList);

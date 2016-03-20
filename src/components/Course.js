@@ -3,11 +3,11 @@ import AssignmentList from './AssignmentList';
 
 class Course extends React.Component {
     render() {
-        const { name, assignments } = this.props.course;
+        const { id, name, assignments } = this.props.course;
         return (
             <div className="course">
-                { name }
-                <AssignmentList ids={ assignments }/>
+                <span className="courseName">{ name }</span>
+                <AssignmentList ids={ assignments } course={ id }/>
             </div> 
         );
     }

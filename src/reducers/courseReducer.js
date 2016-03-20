@@ -36,6 +36,22 @@ export default function courseReducer(state = {array: [1], entities: { 1: new Co
             })
         }
     }
+    case 'ADD_ASSIGNMENT': {
+        const array = state.array 
+        const assignments = state.entities[action.course].assignments.concat(action.id);
+        return {
+            array,
+            entities: array.reduce((object, id) => {
+                if(action.course == id) {
+                    object[id] = Object.assign({}, state.entities[id], { assignments }) 
+                }
+                else {
+                    object[id] = state.entities[id];
+                }
+                return object;
+            }, {})
+        }
+    }
     case 'DELETE_COURSE': {
         const index = state.array.indexOf(action.id);
         const array = state.array.slice(0, index).append(state.array.slice(index+1));

@@ -8,19 +8,20 @@ class CourseList extends React.Component {
         const courses = this.props.courses.map( (course, i)  => (<Course key={ i } course={ course } />));
         return (
             <div className="courseList">
-                <button onClick={this.handleAddCourseClick.bind(this)}></button>
+                <button onClick={ this.handleAddButton.bind(this) }></button>
                 { courses }
             </div>
         );
     }
 
-    handleAddCourseClick(event) {
+    handleAddButton(event) {
         this.props.addCourse();
     }
 }
 
 function mapStateToProps(state) {
     const { courses } = state
+    console.log(courses);
     return {
         courses: courses.array.map(id => courses.entities[id])
     }

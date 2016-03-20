@@ -7,5 +7,5 @@ export function editCourse(id, data) {
 }
 
 export function deleteCourse(id) {
-    return { type: 'DELETE_COURSE', id }
+    return { type: 'DELETE_COURSE', id };
 }

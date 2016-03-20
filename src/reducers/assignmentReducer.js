@@ -1,13 +1,13 @@
-function Assignment(id, text="", dueDate=new Date(), completed=false) {
+function Assignment(id, course, text="", dueDate=new Date(), completed=false) {
     this.id = id;
+    this.course = course;
     this.text = text;
-    this.dueDate = dueDate;    
+    this.dueDate = dueDate;
 }
 export default function assignmentReducer(state={ array: [], entities: {} }, action) {
     switch(action.type) {
     case 'ADD_ASSIGNMENT': {
-        const id = new Date().getTime();
-        const array = state.array.concat(id);
+        const array = state.array.concat(action.id);
         return {
             array,
             entities: array.reduce((object, id) => {
@@ -15,7 +15,7 @@ export default function assignmentReducer(state={ array: [], entities: {} }, act
                     object[id] = state.entities[id];
                 }
                 else {
-                    object[id] = new Assignment(id);
+                    object[id] = new Assignment(id, action.course);
                 }
                 return object;
             }, {})
